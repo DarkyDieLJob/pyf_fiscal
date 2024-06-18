@@ -1,0 +1,21 @@
+DOCUMENT_STATUS_CODES = {
+    0x1: 'Factura A',
+    0x2: 'Factura B',
+    0x3: 'Factura C',
+    0x4: 'Nota de débito A',
+    0x5: 'Nota de débito B',
+    0x6: 'Nota de débito C',
+    0x7: 'Recibo A',
+    0x8: 'Recibo B',
+    0x9: 'Recibo C',
+    0x14: 'Documento no fiscal',
+    0x28: 'Nota de crédito A',
+    0x29: 'Nota de crédito B',
+    0x2A: 'Nota de crédito C',
+    0x2B: 'Remito',
+    0x2C: 'Recibo de uso interno (X)',
+    0x2D: 'Orden de salida',
+    0x2E: 'Resumen de cuenta',
+    0x2F: 'Cargo a la habitación',
+    0x30: 'Cotización'
+}
