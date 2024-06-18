@@ -3,17 +3,17 @@ import json
 import logging
 import time
 
-from gestor_impresora_fiscal.estado.observers import Observador
+from estado.observers import Observador
 import urllib.request
 
-from gestor_impresora_fiscal.impresion.utils.iterar_respuesta import iterar, iterar_aux, iterar_doc
-from gestor_impresora_fiscal.impresion.utils.status_codes.auxiliar_status_code import AUXILIAR_STATUS_CODES
-from gestor_impresora_fiscal.impresion.utils.status_codes.auxiliar_status_code_msb import AUXILIAR_STATUS_CODES_MSB
-from gestor_impresora_fiscal.impresion.utils.status_codes.document_status_code import DOCUMENT_STATUS_CODES
-from gestor_impresora_fiscal.impresion.utils.status_codes.fiscal_status_code import FISCAL_STATUS_CODES
-from gestor_impresora_fiscal.impresion.utils.status_codes.printer_status_code import PRINTER_STATUS_CODES
+from .utils.iterar_respuesta import iterar, iterar_aux, iterar_doc
+from .utils.status_codes.auxiliar_status_code import AUXILIAR_STATUS_CODES
+from .utils.status_codes.auxiliar_status_code_msb import AUXILIAR_STATUS_CODES_MSB
+from .utils.status_codes.document_status_code import DOCUMENT_STATUS_CODES
+from .utils.status_codes.fiscal_status_code import FISCAL_STATUS_CODES
+from .utils.status_codes.printer_status_code import PRINTER_STATUS_CODES
 
-from gestor_impresora_fiscal.impresion.utils.comandos.listar_comandos import comandos_art_bdd
+from impresion.utils.comandos.listar_comandos import COMANDOS_ART_BDD
 
 class FiscalHandler(Observador):
     def __init__(self, impresionStatus):
@@ -242,7 +242,7 @@ class FiscalResponseHandler():
         
         self.p_auxiliar = -1
         self.p_document = -1
-        dict = next((item for item in comandos_art_bdd if comando[0] in item), None)
+        dict = next((item for item in COMANDOS_ART_BDD if comando[0] in item), None)
         if dict:
             p = dict[comando[0]]
             self.p_auxiliar = int(p["auxiliar_status"])

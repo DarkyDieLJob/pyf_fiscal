@@ -1,6 +1,7 @@
 
 
-from gestor_impresora_fiscal.estado.observers import Observador
+from estado.observers import Observador
+from impresion.instanciadores import BoletaJson
 
 
 class Desempaquetador(Observador):

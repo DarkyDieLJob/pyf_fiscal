@@ -1,7 +1,7 @@
 import time
 
-from gestor_impresora_fiscal.estado.observers import Observador
-from gestor_impresora_fiscal.impresion.handlers import FiscalResponseHandler
+from estado.observers import Observador
+from impresion.handlers import FiscalResponseHandler
 
     
 class BoletaJson(Observador):

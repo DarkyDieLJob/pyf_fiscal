@@ -1,7 +1,7 @@
 
 
-from gestor_impresora_fiscal.impresion.utils.dicts_to_bin import dict_to_bin, dict_to_int
-from gestor_impresora_fiscal.utils.imprimir_log import imprimir_log_txt
+from .dicts_to_bin import dict_to_bin, dict_to_int
+from utils.imprimir_log import imprimir_log_txt
 
 
 def iterar(valor_bin_status, status_dic, texto):

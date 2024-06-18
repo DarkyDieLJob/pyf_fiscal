@@ -1,8 +1,8 @@
 
 
-from gestor_impresora_fiscal.boleta.desempaquetadores import Desempaquetador
-from gestor_impresora_fiscal.estado.estados_impresion import ImpresionStatus
-from gestor_impresora_fiscal.impresion.handlers import ConectionHandler
+from boleta.desempaquetadores import Desempaquetador
+from estado.estados_impresion import ImpresionStatus
+from impresion.handlers import ConectionHandler
 
 
 impresionStatus = ImpresionStatus()

@@ -1,5 +1,8 @@
 
 
+from impresion.handlers import FiscalHandler
+
+
 class ImpresionStatus:
     def __init__(self):
         self._observadores = []
