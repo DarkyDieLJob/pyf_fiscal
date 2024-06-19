@@ -11,6 +11,8 @@ class ImpresionStatus:
         self.resetear_atributos()
         self.status = {}
         self.boletas_json = {}
+        self.com_ocupado = False
+        self.com_abierto= False
     
     def resetear_atributos(self):
         self._observadores = self._observadores_base

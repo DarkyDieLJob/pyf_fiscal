@@ -131,9 +131,7 @@ class Ticket(Observador):
             while bucle:
                 respuesta = self.impresionStatus.fh.enviar_comando(comando)
                 if respuesta == '' or respuesta == None:
-                    print("conecte la impresora")
-                    bucle = True
-                    continue
+                    print("conecte la impresora y reinicer el programa")
                 else:
                     fiscalResponseHandler = FiscalResponseHandler(comando, respuesta)
                     fiscalResponseHandler.get_mensages_status()

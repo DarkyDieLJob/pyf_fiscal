@@ -49,31 +49,38 @@ class FiscalHandler(Observador):
         self.buffer = ctypes.create_string_buffer(500)
         
         self.handler = None
-        
+
+    
+    def capturar_respuesta(self):
+        respuesta = self.enviar_comando("*")
+        if respuesta == '' or respuesta == None:
+            self.impresionStatus.com_ocupado = True
+            self.cerrar_puerto()
+        else:
+            self.impresionStatus.com_ocupado = False
+    
     def chequear_puerto(self):
         self.impresionStatus.com_ocupado = True
-        self.impresionStatus.com_abierto = False
-        while self.impresionStatus.com_ocupado:
-            # Abre la impresora fiscal
+        while self.impresionStatus.com_ocupado and not self.impresionStatus.com_abierto:
             self.handler = self.OpenComFiscal(1, 1)
-            
             if self.handler < 0 :
                 if self.handler == -5 or self.handler == "-5":
                     print("\\nOpenComFiscal retorna {}\\n\\n".format(self.handler))
                     print("Puerto Ocupado")
                     time.sleep(2)
-                    self.impresionStatus.com_ocupado = True
                 else:
                     print("\\nError OpenComFiscal...FIN !!\\n\\n")
-                    self.CloseComFiscal(self.handler)
+                    self.cerrar_puerto(self.handler)
                     print('Puerto cerrado')
-                    self.impresionStatus.com_abierto = False
             else:
                 print("\\nOpenComFiscal retorna {}\\n\\n".format(self.handler))
                 self.impresionStatus.com_ocupado = False
+                self.impresionStatus.com_abierto = True
+
 
     def cerrar_puerto(self):
         # Espera un tiempo antes de la próxima solicitud
+        print(type(self.handler))
         self.CloseComFiscal(self.handler)
         print('Puerto cerrado')
         self.puerto_abierto = False
