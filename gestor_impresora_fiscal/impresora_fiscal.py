@@ -8,7 +8,7 @@ from utils.obtener_ip import get_ip
 def main():
     ip_address = get_ip()
     with open('.env', 'w') as f:
-        f.write(f'SERVER_IP={ip_address}\n')
+        f.write('SERVER_IP={}\n'.format(ip_address))
         
     impresionStatus = ImpresionStatus()
     conectionHandler = ConectionHandler(impresionStatus)
